@@ -33,7 +33,13 @@ first_side_btns.forEach((btn) => {
             })
         }
         apiFunc().then(res => {
-            bottom_side_of_currency_first.innerText=`1 ${e.target.innerText}` + " = " + `${(res.rates[second_side_checked_btn]/res.rates[e.target.innerText]).toFixed(4)}`+`${second_side_checked_btn}`
+            bottom_side_of_currency_first.innerText=`1 ${e.target.innerText}` 
+            + " = " + `${(res.rates[second_side_checked_btn]/res.rates[e.target.innerText]).toFixed(4)}`
+            +`${second_side_checked_btn}`
+            bottom_side_of_currency_second.innerText=`1 ${second_side_checked_btn}`
+            + ` = `
+            + `${(res.rates[e.target.innerText]/res.rates[second_side_checked_btn]).toFixed(4)}`
+            + ` ${e.target.innerText}`
         })
         
     })
@@ -52,7 +58,12 @@ second_side_btns.forEach((btn) => {
             })
         }
         apiFunc().then(res => {
-            bottom_side_of_currency_second.innerText=`1 ${e.target.innerText}` + " = " + `${(res.rates[first_side_checked_btn]/res.rates[e.target.innerText]).toFixed(4)} `+`${first_side_checked_btn}`
+            bottom_side_of_currency_second.innerText = `1 ${e.target.innerText}` + " = " 
+            +`${(res.rates[first_side_checked_btn]/res.rates[e.target.innerText]).toFixed(4)} ` 
+            + `${first_side_checked_btn}`
+            bottom_side_of_currency_first.innerText = `1 ${first_side_checked_btn} `
+            + `= `+ `${(res.rates[e.target.innerText]/res.rates[first_side_checked_btn]).toFixed(4)}`
+            + `${e.target.innerText}`
         })
     })
 })
